@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>Add event for day {{day}}</title>
+{% endblock head %}
+{% block content %}
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">SmartHome Survey</a>
+            </div>
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Add Event</h1>
+                <p>Device event for day {{day}}</p>
+            </div>
+        </div>
+
+        
+
+  <div class="row">
+            <div class="col-lg-12 text-center">
+            	<div class="panel panel-default">
+            		<div class="panel-heading"><h4>Form</h4></div>
+  					<div class="panel-body">
+
+        <form method="post" action="{{url_for('addevent', day = day)}}" id="addevent-form" class="form-horizontal">
+			
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Action:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control" name="action" id="action" placeholder="Enter action" required= "required"/>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Device Id:</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control" name="deviceId" id="deviceId" placeholder="Enter deviceId" required= "required"/>
+				</div>
+			</div>
+
+			<div class="form-group"> 
+              <div class="col-sm-offset-1 col-sm-10">
+				<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" />
+			</div>
+			</div>
+		
+		</form>
+
+	</div>
+				</div>
+            </div>
+         </div>
+	  
+    <!-- /.container -->
+</div>
+{% endblock content %}
+
+
+<html>
+    <head>
+        <title>add event {{day}}</title>
+    </head>
+    <body>
+        <form method="post" action="{{url_for('addevent', day = day)}}" id="addevent-form">
+			<div>
+				<label for="action">Action</label>
+				<input type="text" name="action" id="action" required= "required"/>
+			</div>
+			<div>
+				<label for="deviceId">Device Id</label>
+				<input type="text" name="deviceId" id="deviceId" required= "required"/>
+			</div>
+			<div class="submit">
+				<input type="submit" name="submit" id="submit" value="Submit" />
+			</div>
+		
+		</form>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+[
+    {
+        "username": "sid",
+        "numberDevices": "10",
+        "dayData": [
+            {
+                "dayId": "1",
+                "events": [
+                    {
+                        "action": "off",
+                        "color": "red",
+                        "deviceId": "1",
+                        "timestamp": "17-1-2019"
+                    },
+                    {
+                        "action": "off",
+                        "color": "red",
+                        "deviceId": "5",
+                        "timestamp": "17-1-2019"
+                    },
+                    {
+                        "action": "on",
+                        "deviceId": "6",
+                        "timestamp": "17-01-2019"
+                    },
+                    {
+                        "action": "color ",
+                        "deviceId": "5",
+                        "timestamp": "17-01-2019"
+                    },
+                    {
+                        "action": "color",
+                        "deviceId": "3",
+                        "timestamp": "17-01-2019"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "man",
+        "numberDevices": "10",
+        "dayData": [
+            {
+                "dayId": "0",
+                "events": [
+                    {
+                        "action": "off",
+                        "color": "red",
+                        "deviceId": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "lol",
+        "numberDevices": "7",
+        "dayData": [
+            {
+                "dayId": "0",
+                "events": [
+                    {
+                        "action": "off",
+                        "color": "red",
+                        "deviceId": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "sidd",
+        "numberDevices": "5"
+    },
+    {
+        "username": "pop",
+        "numberDevices": "2"
+    },
+    {
+        "username": "popo",
+        "numberDevices": "2"
+    },
+    {
+        "username": "poppooo",
+        "numberDevices": "5"
+    },
+    {
+        "username": "www",
+        "numberDevices": "1"
+    },
+    {
+        "username": "pp",
+        "numberDevices": "1"
+    },
+    {
+        "username": "uyu",
+        "numberDevices": "1"
+    },
+    {
+        "username": "Pappu",
+        "numberDevices": "8"
+    },
+    {
+        "username": "Emma",
+        "numberDevices": "5"
+    }
+]
