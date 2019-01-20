@@ -3,6 +3,23 @@
 {% block head %}
         <title>Landing Page</title>
 {% endblock head %}
+
+{% block css %}
+<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <style>
+    a.cal{
+   color:#000000 !important;
+}
+
+a.cal:hover, a.cal:visited{
+   color:#000000 !important;
+}
+    </style>
+{% endblock css %}
+
 {% block content %}
 
 <!-- Navigation -->
@@ -21,42 +38,30 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Survey Landing Page</h1>
-                <p>Fill in the day number (1 - ) and enter in the events accordingly</p>
-            </div>
-        </div>
+        
 
         
 
   <div class="row">
             <div class="col-lg-12 text-center">
             	<div class="panel panel-default">
-            		<div class="panel-heading"><h4>Form</h4></div>
+            		<div class="panel-heading"><h4>Choose the date to fill usage data</h4></div>
   					<div class="panel-body">
 
+  <div class="col-lg-8 text-center">
+            <div id="calendar">
+    <div id="calendar_header"><i class="icon-chevron-left"></i>          <h1></h1><i class="icon-chevron-right"></i>         </div>
+    <div id="calendar_weekdays"></div>
+    <div id="calendar_content"></div>
+  </div>
+</div>
+
+<div class="col-lg-4 ">
   					<div>
-  						<h3>Welcome {{name}}, you have {{userObj.numberDevices}} devices.</h3>  					
+  						<h4>Welcome {{name}}, you have {{userObj.numberDevices}} devices.</h4>  					
   					</div>
-
-        <form method="post" action="{{url_for('landing', name = name)}}" id="landing-form" class="form-horizontal">
-
-
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="name">Enter Day Number:</label>
-				<div class="col-sm-10">
-				<input type="text" class="form-control" name="dayNumber" id="dayNumber" placeholder="Enter day Number" required= "required"/>
-				</div>
-			</div>
-
-			<div class="form-group"> 
-              <div class="col-sm-offset-1 col-sm-10">
-				<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" />
-			</div>
-			</div>
-		
-		</form>
+</div>
+        
 
 	</div>
 				</div>
@@ -66,3 +71,8 @@
     <!-- /.container -->
 </div>
 {% endblock content %}
+
+{% block js %}
+<script src="/static/js/index.js"></script>
+
+{% endblock js %}

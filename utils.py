@@ -1,45 +1,65 @@
 #to store/update/retrieve data
 import json
 from flask import session, escape
+
+#constants
+filename = "data1.json"
+
+
 def test():
 	return "hello"
 
-def user_login(name):
-	session['name'] = escape(name)
+def user_login(empId):
+	session['empId'] = escape(empId)
 
 def is_logged_in():
-	if 'name' in session:
+	if 'empId' in session:
 		return True
 	return False 
 
-def user_exists(name):
+def user_exists(empId):
 	userAlreadyExists = False
 	#load file
-	with open("data.json") as f:
+	with open("data1.json") as f:
 		data = json.load(f)
 		for i in data:
-			if(i["username"] == name):
+			if(i["empId"] == empId):
 				userAlreadyExists = True
 	return userAlreadyExists
 
-def create_new_user(name, numberDevices):
+def create_new_user(name, empId):
 	#read whole json
 	#load file
 	data = []
-	with open("data.json") as f:
+	with open("data1.json") as f:
 		data = json.load(f)
 	newUser = {
-	'username' : name,
-	'numberDevices' : numberDevices
+	"username" : name,
+	"empId" : empId,
+	"userData": {
+            "dayCount": "0"
+        },
+        "dayData": [
+        ]
 	}
 	data.append(newUser)
-	with open("data.json", "w") as f:
+	with open("data1.json", "w") as f:
 		json.dump(data,f,indent=4)
-	return "hue" + name + numberDevices
+	return "created user " + name + " " + empId
+
+def user_search_by_empid(empId):
+	user = {}
+	with open("data1.json") as f:
+		data = json.load(f)
+		for i in data:
+			if(i["empId"] == empId):
+				user = i
+				break
+	return user
 
 def user_search_by_name(name):
 	user = {}
-	with open("data.json") as f:
+	with open("data1.json") as f:
 		data = json.load(f)
 		for i in data:
 			if(i["username"] == name):
@@ -62,7 +82,7 @@ def insert_event(userObj, dayNumber, newEvent):
 	events.append(newEvent)
 	#read file
 	data = []
-	with open("data.json") as f:
+	with open("data1.json") as f:
 		data = json.load(f)
 
 	for i in data:
@@ -71,5 +91,5 @@ def insert_event(userObj, dayNumber, newEvent):
 				if(j['dayId'] == dayNumber):
 					j['events'] = events
 	
-	with open("data.json", "w") as f:
+	with open("data1.json", "w") as f:
 		json.dump(data,f,indent=4)	

@@ -1,0 +1,73 @@
+[
+    {
+        "username": "sid",
+        "empId": "10",
+        "userData": {
+            "dayCount": "2"
+        },
+        "dayData": [
+            {
+                "dayId": "1",
+                "date": "",
+                "eventIndex": "1",
+                "events": [
+                    {
+                        "eventId": "1",
+                        "action": "off",
+                        "value": "off",
+                        "devicename": "bedroom",
+                        "timestamp": "9:30am"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "dsd",
+        "empId": "5565",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    },
+    {
+        "username": "dsd",
+        "empId": "55651",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    },
+    {
+        "username": "Sid",
+        "empId": "11",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    },
+    {
+        "username": "Sid",
+        "empId": "1198",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    },
+    {
+        "username": "sid",
+        "empId": "101",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    },
+    {
+        "username": "Sid",
+        "empId": "111",
+        "userData": {
+            "dayCount": "0"
+        },
+        "dayData": []
+    }
+]

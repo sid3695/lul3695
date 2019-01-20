@@ -1,0 +1,716 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>Signup</title>
+{% endblock head %}
+{% block content %}
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">SmartHome Survey</a>
+            </div>
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+
+        
+
+<div class="row">
+    <div class="col-lg-12 ">
+    	<div class="panel panel-default">
+    		<div class="panel-heading text-center"><h4> All events on {{date}}/{{month}}/{{year}}</h4>
+            </div>
+			<div class="panel-body">
+
+                <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                12 AM - 1 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[0] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                1 AM - 2 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[1] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                2 AM - 3 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[2] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                3 AM - 4 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[3] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                4 AM - 5 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[4] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                5 AM - 6 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[5] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                6 AM - 7 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[6] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                7 AM - 8 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[7] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                8 AM - 9 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[8] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                9 AM - 10 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[9] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                10 AM - 11 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[10] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                11 AM - 12 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[11] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                12 PM - 1 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[12] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                1 PM - 2 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[13] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                2 PM - 3 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[14] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                3 PM - 4 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[15] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                4 PM - 5 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[16] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                5 PM - 6 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[17] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                6 PM - 7 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[18] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                7 PM - 8 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[19] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                8 PM - 9 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[20] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                9 PM - 10 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[21] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+             <div class = "row">
+
+                    <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                22 PM - 23 PM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[22] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+                    
+                   <div class = "col-lg-6">
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class = "col-lg-4">
+                                11 PM - 12 AM
+                            </div>
+
+                            <div class = "col-lg-8">
+                                
+                                {% for i in timetable[23] %}
+                                
+                                {% if i.action == "off" %}
+                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% elif i.action == "on" %}
+                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                          </div>
+                        </div>                      
+                    </div>
+
+
+
+            </div>
+
+
+
+
+		</div>
+    </div>
+</div>
+	  
+    <!-- /.container -->
+</div>
+{% endblock content %}
