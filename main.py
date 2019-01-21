@@ -16,6 +16,9 @@ def signup():
 	if request.method == 'POST':
 		#if entered
 		#check if already, no need to create
+		if is_logged_in():
+			print(session['empId'])
+			return redirect(url_for("landing", empId = session['empId']))
 		if user_exists(request.form['empId']):
 			print("Signup : Existing user")
 			user_login(request.form['empId'])
@@ -31,6 +34,9 @@ def signup():
 			return redirect(url_for("landing", empId = request.form['empId']))
 	else:
 		#landing on page
+		if is_logged_in():
+			print(session['empId'])
+			return redirect(url_for("landing", empId = session['empId']))
 		return render_template("signup.html", flag = 0)
 
 #@app.route('/login', methods = ['GET', 'POST'])
@@ -86,6 +92,8 @@ def landingdate(year, month, date):
 				print("GLGLLG")
 		timetable = {
 		}
+		dayId = i['dayId']
+		print("dayIdDDDDDDDDDDD " + dayId)
 		#sort dayData.events and arrange into 24 hours
 		for i in range(0,25):
 			timetable[i] = [];
@@ -114,7 +122,7 @@ def landingdate(year, month, date):
 			templist = sorted(timetable[i], key=lambda k: k['timestamp'])
 			timetable[i] = templist
 		print(timetable)
-		return render_template("date.html", year = year, month= month, date = date, timetable = timetable)
+		return render_template("date.html", year = year, month= month, date = date, timetable = timetable, dayId = dayId)
 	else:
 		return redirect(url_for("signup"))
 
@@ -129,25 +137,79 @@ def daynumber(day):
 	else:
 		return redirect(url_for("login"))
 
-@app.route('/addevent/<day>', methods = ['GET', 'POST'])
-def addevent(day):
+@app.route('/addevent/<dayId>/<year>/<month>/<date>', methods = ['GET', 'POST'])
+def addevent(dayId, year, month, date):
 	#pick username from session
+	#return "henlo" + request.form['timestamp'] + request.form['value'] + request.form['action'] + request.form['devicename']
 	if is_logged_in():
-		username = session['name']
-		userObj = user_search_by_name(username)
-		events = events_specific_day(userObj, day)
+		empId = session['empId']
+		userObj = user_search_by_empid(empId)
+
+		#get to the user first
+		dayData= {}
+		#increment eventIndex
+		for i in userObj['dayData']:
+			if(i['dayId'] == dayId):
+				dayData = i
+				break
+		currIndex = 0
+		try:
+			dayData['eventIndex'] = dayData['eventIndex'] + 1
+			currIndex = dayData['eventIndex']
+		except:
+			print("new")
+			currIndex = 1
+		#events = events_specific_day(userObj, day)
 		if request.method == "POST":
 			#handle addition to json
 			newEvent = {
 			'action' : request.form["action"],
-			'deviceId' : request.form["deviceId"],
-			'timestamp' : "17-01-2019"
+			'devicename' : request.form["devicename"],
+			'timestamp' : request.form['timestamp'],
+			'value': request.form['value'],
+			'eventId' : dayData['eventIndex']
 			}
-			insert_event(userObj,day,newEvent)
-			return redirect(url_for("daynumber", day = day))
+			#insert_event(userObj,day,newEvent)
+			events = []
+			if currIndex > 1:
+				for i in userObj['dayData']:
+					if(i['dayId']==dayId):
+						events = i['events']
+						break
+				events.append(newEvent)
+				for i in userObj['dayData']:
+					if(i['dayId'] == dayId):
+						i['events'] = events
+
+
+				#fill in events of daydata
+				#userObj['dayData']
+			else:
+				str_date = year+ "-" + month+ '-' + date
+				userObj['userData']['dayCount']= str(int(userObj['userData']['dayCount']) + 1)
+				fillDay = {
+				'dayId' : currIndex,
+				'date' : str_date,
+				'eventIndex' : currIndex,
+				'events' : [newEvent
+				]
+				}
+				userObj['dayData'].append(fillDay)
+
+			data = []
+			with open("data1.json") as f:
+				data = json.load(f)
+			for i in data:
+				if i['empId'] == session['empId']:
+					i = userObj
+
+			with open("data1.json", "w") as f:
+				json.dump(data,f,indent=4)
+
+			return redirect(url_for("landingdate",year = year, month = month, date= date))
 		else:
 			#display form
-			print("here")
+			return "henlo"
 			return render_template("addevent.html", day = day)
 	else:
 		return redirect(url_for("login"))

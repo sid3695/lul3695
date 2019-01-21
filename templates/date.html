@@ -3,6 +3,13 @@
 {% block head %}
         <title>Signup</title>
 {% endblock head %}
+
+{% block css %}
+
+      <link rel="stylesheet" href="/static/css/clockpicker.css">
+   
+{% endblock css %}
+
 {% block content %}
 
 <!-- Navigation -->
@@ -27,7 +34,20 @@
 <div class="row">
     <div class="col-lg-12 ">
     	<div class="panel panel-default">
-    		<div class="panel-heading text-center"><h4> All events on {{date}}/{{month}}/{{year}}</h4>
+    		<div class="panel-heading text-center">
+                <div class = "row"><div class = "col-lg-4">
+                
+                </div>
+                <div class = "col-lg-4">
+                <h4> All events on {{date}}/{{month}}/{{year}}</h4>
+                </div>
+                <div class = "col-lg-2">
+                
+                </div>
+                <div class = "col-lg-2">
+                <button type = "button" class = "btn btn-info" data-toggle="modal" data-target="#addEvent"> Add an Event</button>
+                </div>
+                    </div>
             </div>
 			<div class="panel-body">
 
@@ -45,11 +65,11 @@
                                 {% for i in timetable[0] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -70,11 +90,11 @@
                                 {% for i in timetable[1] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -101,11 +121,11 @@
                                 {% for i in timetable[2] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -126,11 +146,11 @@
                                 {% for i in timetable[3] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -158,11 +178,11 @@
                                 {% for i in timetable[4] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -183,11 +203,11 @@
                                 {% for i in timetable[5] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -214,11 +234,11 @@
                                 {% for i in timetable[6] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -239,11 +259,11 @@
                                 {% for i in timetable[7] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -270,11 +290,11 @@
                                 {% for i in timetable[8] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -295,11 +315,11 @@
                                 {% for i in timetable[9] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -326,11 +346,11 @@
                                 {% for i in timetable[10] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -351,11 +371,11 @@
                                 {% for i in timetable[11] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -382,11 +402,11 @@
                                 {% for i in timetable[12] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -407,11 +427,11 @@
                                 {% for i in timetable[13] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -438,11 +458,11 @@
                                 {% for i in timetable[14] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -463,11 +483,11 @@
                                 {% for i in timetable[15] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -494,11 +514,11 @@
                                 {% for i in timetable[16] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -519,11 +539,11 @@
                                 {% for i in timetable[17] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -550,11 +570,11 @@
                                 {% for i in timetable[18] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -575,11 +595,11 @@
                                 {% for i in timetable[19] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -606,11 +626,11 @@
                                 {% for i in timetable[20] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -631,11 +651,11 @@
                                 {% for i in timetable[21] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -662,11 +682,11 @@
                                 {% for i in timetable[22] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -687,11 +707,11 @@
                                 {% for i in timetable[23] %}
                                 
                                 {% if i.action == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% elif i.action == "on" %}
-                                <button type="button" class="btn btn-success btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% else %}
-                                <button type="button" class="btn btn-primary btn-xs">{{i.devicename}} at {{i.timestamp}}</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename}} at {{i.timestamp}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -711,6 +731,145 @@
     </div>
 </div>
 	  
+
+
+
+<!--  modals-->
+{% for i in timetable %}
+{% for j in timetable[i] %}
+
+<div id="{{j.eventId}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Event Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>Device Name : {{j.devicename}}</p>
+        <p>Action Performed : {{j.action}}</p>
+        <p>Time : {{j.timestamp}}</p>
+        {% if j.action == "color" %}
+        <p>Color : {{j.value}}</p>
+        {% endif %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+{% endfor %}
+
+
+<div id="addEvent" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a new event</h4>
+      </div>
+      <div class="modal-body">
+        
+        <form method="post" action="{{url_for('addevent', dayId = dayId, year = year, month = month, date = date)}}" id="addevent-form" class="form-horizontal">
+            
+<div class="row">
+<div class = "col-sm-5 col-sm-offset-1"> 
+<label for="action" >Select the action you performed:</label>
+</div>
+  <div class="col-sm-4">
+            <div class="form-group">
+                
+
+                
+      <select class="form-control" name = "action" id="action" onchange="yesnoCheck(this);">
+        <option value = "on">Power On</option>
+        <option value = "off">Switch Off</option>
+        <option value = "color">Change Color</option>
+      </select>
+
+</div></div>
+            </div>
+
+
+        
+
+        <div class="form-group" style="display: none;" id = "ifYes">
+                <label class="control-label col-sm-3 col-sm-offset-1" for="value">Color:</label>
+                <div class="col-sm-6">
+                <input type="text" value = "off" class="form-control" name="value" id="value" placeholder="Enter the color" required= "required"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3 col-sm-offset-1" for="devicename">Device Name:</label>
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="devicename" id="devicename" placeholder="Enter devicename" required= "required"/>
+                </div>
+            </div>
+
+<div class="row">
+<div class = "control-label col-sm-3 col-sm-offset-1"> 
+<label for="action" >Time of Event:</label>
+</div>
+<div class = "col-sm-6">
+<div class="form-group">
+            <div class="input-group clockpicker">
+    <input type="text" class="form-control" value="09:30" name ="timestamp" id = "timestamp">
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+</div>
+
+</div>
+
+</div></div>
+            <div class="form-group"> 
+              <div class="col-sm-offset-5">
+                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" />
+            </div>
+            </div>
+        
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
     <!-- /.container -->
 </div>
 {% endblock content %}
+
+{% block js %}
+<script src="/static/js/clockpicker.js"></script>
+<script type="text/javascript">
+$('.clockpicker').clockpicker({
+    donetext: 'Select'
+});
+
+ function yesnoCheck(that) {
+    console.log("hello")
+        if (that.value == "color") {
+            //alert("check");
+            document.getElementById("value").value = "";
+            document.getElementById("ifYes").style.display = "block";
+        } else {
+            //document.getElementById("value").value = that.value;
+            document.getElementById("ifYes").style.display = "none";
+        }
+    }
+
+
+</script>
+{% endblock js %}

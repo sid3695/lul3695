@@ -8,15 +8,22 @@
         "dayData": [
             {
                 "dayId": "1",
-                "date": "",
-                "eventIndex": "1",
+                "date": "2019-01-22",
+                "eventIndex": "2",
                 "events": [
                     {
                         "eventId": "1",
                         "action": "off",
                         "value": "off",
                         "devicename": "bedroom",
-                        "timestamp": "9:30am"
+                        "timestamp": "9:30"
+                    },
+                    {
+                        "eventId": "2",
+                        "action": "color",
+                        "value": "on",
+                        "devicename": "bedroom",
+                        "timestamp": "9:15"
                     }
                 ]
             }
