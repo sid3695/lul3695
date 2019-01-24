@@ -4,6 +4,7 @@ from datetime import datetime
 class User(db.Model):
 	username = db.Column(db.String(40), nullable=False)
 	emp_id = db.Column(db.Integer, nullable = False, primary_key = True)
+	first_login = db.Column(db.Boolean, nullable = False, default = True)
 	def __repr__(self):
 		return '<User %r>' % self.username
 
@@ -30,9 +31,14 @@ class Events(db.Model):
 
 
 	def __repr__(self):
-		return '<Date %r>' % self.day_id
+		return '<Event %r>' % self.event_id
 
 class Devices(db.Model):
 	devicename = db.Column(db.String(20), nullable = False)
+	device_id = db.Column(db.Integer, nullable = False, primary_key = True)
 	emp_id = db.Column(db.Integer, db.ForeignKey('user.emp_id'),nullable=False)
 	user = db.relationship('User',backref=db.backref('devices', lazy=True))
+
+
+	def __repr__(self):
+		return '<Device %r>' % self.devicename

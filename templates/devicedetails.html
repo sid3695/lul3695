@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>Device Details</title>
+{% endblock head %}
+
+
+
+{% block css %}
+<style>
+   table.borderless td,table.borderless th{
+     border: none !important;
+}
+</style>
+    {% endblock css %}
+{% block content %}
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">SmartHome Survey</a>
+            </div>
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Enter the names of the devices you have</h1>
+                
+            </div>
+        </div>
+
+        
+
+  <div class="row">
+            <div class="col-lg-12 text-center">
+            	<div class="panel panel-default">
+            		<div class="panel-heading"><h4> Device names</h4></div>
+  					<div class="panel-body">
+
+
+                        <div class="container">
+                             <form method="post" action="{{url_for('devicedetails')}}" id="device-form" class="form-horizontal">
+                            <table id="myTable" class=" table borderless order-list">
+                            <thead>
+                                <tr>
+                                    
+                                    <td></td>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-4">
+                                        <input type="text" name="name" class="form-control" required= "required"/>
+                                    </td>
+                                    <td class="col-sm-2"><a class="deleteRow"></a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td c style="text-align: left;">
+                                        <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        </div>
+
+
+
+
+       
+			
+
+			
+
+
+			
+
+
+			<div class="form-group"> 
+              <div class="col-sm-offset-1 col-sm-10">
+				<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" />
+			</div>
+			</div>
+		
+		</form>
+
+	</div>
+				</div>
+            </div>
+         </div>
+	  
+    <!-- /.container -->
+</div>
+{% endblock content %}
+
+
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td class="col-sm-4"><input type="text" class="form-control" required= "required" name="name' + counter + '"/></td>';
+
+        cols += '<td class="col-sm-2"><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+    });
+
+
+
+    $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();       
+        counter -= 1
+    });
+
+
+});
+
+
+
+function calculateRow(row) {
+    var price = +row.find('input[name^="price"]').val();
+
+}
+
+function calculateGrandTotal() {
+    var grandTotal = 0;
+    $("table.order-list").find('input[name^="price"]').each(function () {
+        grandTotal += +$(this).val();
+    });
+    $("#grandtotal").text(grandTotal.toFixed(2));
+}
+
+</script>
+{% endblock js %}

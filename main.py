@@ -30,7 +30,7 @@ from utils import *
 
 @app.route('/logout',methods = ['GET', 'POST'])
 def logout():
-	if is_logged_in:
+	if is_logged_in():
 		del session['empId']
 	return 'done'
 
@@ -41,11 +41,11 @@ def signup():
 		#check if already, no need to create
 		if is_logged_in():
 			print(session['empId'])
-			return redirect(url_for("landing", empId = session['empId']))
+			return redirect(url_for("devicedetails"))
 		if user_exists_db(request.form['empId']):
 			print("Signup : Existing user")
 			user_login(request.form['empId'])
-			return redirect(url_for("landing", empId = request.form['empId']))
+			return redirect(url_for("devicedetails"))
 			#return render_template("signup.html", flag = 2)
 
 		#otherwise create
@@ -54,12 +54,12 @@ def signup():
 			create_new_user_db(request.form['name'], request.form['empId'])
 			#log in the user/session
 			user_login(request.form['empId'])
-			return redirect(url_for("landing", empId = request.form['empId']))
+			return redirect(url_for("devicedetails"))
 	else:
 		#landing on page
 		if is_logged_in():
 			print(session['empId'])
-			return redirect(url_for("landing", empId = session['empId']))
+			return redirect(url_for("devicedetails"))
 		return render_template("signup.html", flag = 0)
 
 #@app.route('/login', methods = ['GET', 'POST'])
@@ -186,7 +186,7 @@ def addevent(dayId, year, month, date):
 			return "henlo"
 			return render_template("addevent.html", day = day)
 	else:
-		return redirect(url_for("login"))
+		return redirect(url_for("signup"))
 
 @app.route('/delevent/<eventId>/<year>/<month>/<date>', methods = ['GET', 'POST'])
 def delevent(eventId, year, month, date):
@@ -199,3 +199,33 @@ def delevent(eventId, year, month, date):
 		else:
 			print("notvalid")
 		return redirect(url_for("landingdate",year = year, month = month, date= date))
+
+@app.route('/devicedetails', methods = ['GET', 'POST'])
+def devicedetails():
+	if is_logged_in():
+		empId = session['empId']
+		x = User.query.filter_by(emp_id = empId).first()
+		if x.first_login:
+			if request.method == "POST":
+				#set user login default
+				
+				if x.first_login == True:
+					x.first_login = False	
+					db.session.commit()
+				#all devices in db
+				if request.form["name"]:
+					dname = Devices(emp_id = empId, devicename = request.form["name"])
+					db.session.add(dname)
+				for i in range(0,20):
+					if "name" + str(i) in request.form:
+						dname = Devices(emp_id = empId, devicename = request.form["name" + str(i)])
+						db.session.add(dname)
+				db.session.commit()
+
+				return redirect(url_for("landing", empId = empId))
+			else:
+				return render_template("devicedetails.html")
+		else:
+			return redirect(url_for("landing", empId = empId))
+	else:
+		return 'henlo'
