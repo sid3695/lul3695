@@ -744,7 +744,12 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
+        
         <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <a href = "{{url_for('delevent', eventId = j.eventId, year = year, month = month, date = date)}}"><button type="button" class="close">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+        </a>
         <h4 class="modal-title">Event Details</h4>
       </div>
       <div class="modal-body">

@@ -1,9 +1,53 @@
 #to store/update/retrieve data
 import json
 from flask import session, escape
-
+from main import db
+from models import *
 #constants
 filename = "data1.json"
+
+
+
+
+
+
+########DB
+
+
+def create_new_user_db(name, empId):
+	new_user = User(username = name, emp_id = empId)
+	db.session.add(new_user)
+	db.session.commit()
+	print(User.query.all())
+
+def user_search_by_empid_db(empId):
+	user = {}
+	x = User.query.filter_by(emp_id = empId).first()
+	print("X")
+	print(x)
+	return {
+	'username' : x.username,
+	'empId' : x.emp_id
+	}
+
+def user_exists_db(empId):
+	userAlreadyExists = False
+	#load file
+	if(User.query.filter_by(emp_id = empId).first()):
+		userAlreadyExists = True
+	return userAlreadyExists
+
+
+
+
+
+
+##########
+
+
+
+
+
 
 
 def test():
