@@ -808,14 +808,30 @@
         <div class="form-group" style="display: none;" id = "ifYes">
                 <label class="control-label col-sm-3 col-sm-offset-1" for="value">Color:</label>
                 <div class="col-sm-6">
-                <input type="text" value = "off" class="form-control" name="value" id="value" placeholder="Enter the color" required= "required"/>
+
+                <select class="form-control" name = "value" id="value" required= "required">
+        <option selected value = "off">-------</option>
+        <option value = "red">Red</option>
+        <option value = "yellow">Yellow</option>
+        <option value = "red">Green</option>
+        <option value = "yellow">Blue</option>
+        <option value = "red">Purple</option>
+        <option value = "yellow">Orange</option>
+      </select>
+
+
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-sm-3 col-sm-offset-1" for="devicename">Device Name:</label>
                 <div class="col-sm-6">
-                <input type="text" class="form-control" name="devicename" id="devicename" placeholder="Enter devicename" required= "required"/>
+                    <select class="form-control" name = "devicename" id="devicename">
+                        
+                        {% for i in devices %}
+                        <option value = "{{i.devicename}}">{{i.devicename}}</option>
+                        {% endfor %}
+                      </select>
                 </div>
             </div>
 
@@ -867,7 +883,7 @@ $('.clockpicker').clockpicker({
     console.log("hello")
         if (that.value == "color") {
             //alert("check");
-            document.getElementById("value").value = "";
+            //document.getElementById("value").value = "";
             document.getElementById("ifYes").style.display = "block";
         } else {
             //document.getElementById("value").value = that.value;

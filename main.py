@@ -32,7 +32,7 @@ from utils import *
 def logout():
 	if is_logged_in():
 		del session['empId']
-	return 'done'
+	return redirect(url_for("signup"))
 
 @app.route('/', methods = ['GET', 'POST'])
 def signup():
@@ -116,9 +116,10 @@ def landingdate(year, month, date):
 			dayIdfromDB = datefromDB.day_id
 		except:
 			dayIdfromDB = -1
-		print("day id " + str(dayIdfromDB))
+		print("day id " + str(dayIdfromDB) + "of emp " + str(empId))
 		
 
+		devices = (Devices.query.filter_by(emp_id = empId).all())
 		
 		eventsfromDB = Events.query.filter_by(day_id  = dayIdfromDB)
 		print("ithe")
@@ -144,7 +145,7 @@ def landingdate(year, month, date):
 			templist = sorted(timetable[i], key=lambda k: k['timestamp'])
 			timetable[i] = templist
 		print(timetable)
-		return render_template("date.html", year = year, month= month, date = date, timetable = timetable, dayId = dayIdfromDB)
+		return render_template("date.html", year = year, month= month, date = date, timetable = timetable, dayId = dayIdfromDB, devices = devices)
 	else:
 		return redirect(url_for("signup"))
 
