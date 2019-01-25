@@ -21,8 +21,8 @@ db = SQLAlchemy(app)
 from models import *
 from utils import *
 
-#db.drop_all()
-#db.create_all()
+db.drop_all()
+db.create_all()
 
 #@app.route('/')
 #def hello_world():
@@ -157,7 +157,7 @@ def addevent(dayId, year, month, date):
 	if is_logged_in():
 
 		#for that day_id make an entry
-
+		print(Date.query.filter_by(day_id = dayId).all())
 		if request.method == "POST":
 			#handle addition to json
 			'''newEvent = {
@@ -169,15 +169,21 @@ def addevent(dayId, year, month, date):
 			}'''
 			#check if daydata
 			#if yes then add event
-			if Date.query.filter_by(day_id = dayId):
+			if Date.query.filter_by(day_id = dayId).first():
+				print("YAHA")
 				newEvent = Events(day_id = dayId, action = request.form["action"], devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
 				db.session.add(newEvent)
 				db.session.commit()
 			else:
+				#-1 comes here
 				#create date
+				print('here')
 				newDate = Date(emp_id = session['empId'], date = datetime(int(year),int(month),int(date)).date()) 
-				newEvent = Events(day_id = dayId, action = request.form["action"], devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
 				db.session.add(newDate)
+				db.session.commit()
+				print(newDate)
+				newEvent = Events(day_id = newDate.day_id, action = request.form["action"], devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
+				
 				db.session.add(newEvent)
 				db.session.commit()
 
