@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-        <title>Signup</title>
+        <title>Events on {{date}}/{{month}}/{{year}}</title>
 {% endblock head %}
 
 {% block css %}
@@ -19,7 +19,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">SmartHome Survey</a>
             </div>
-            
+            <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
         </div>
         <!-- /.container -->
     </nav>
