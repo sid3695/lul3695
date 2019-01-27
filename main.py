@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, session, request, redirect
 
 from flask_sqlalchemy import SQLAlchemy
 import os
-
+import json
 
 #project_dir = os.path.dirname(os.path.abspath(__file__))
 #database_file = "sqlite:///{}".format(os.path.join(project_dir, "events.db"))
@@ -242,6 +242,21 @@ def devicedetails():
 			return redirect(url_for("landing", empId = empId))
 	else:
 		return 'henlo'
+
+@app.route('/userdump')
+def userdump():
+	q = db.session.query(User,Date,Events).join(Date).join(Events).order_by(Date.date).order_by(Events.timestamp).all()
+	#qq = db.session.query(Events).join(q, Events.day_id == q.day_id)
+	#print (qq.all())
+	user_dict = {}
+	for i in q:
+		val = str(i.Date.date) + "," + str(i.Events.timestamp) + "," + i.Events.action + "," + i.Events.devicename + "," +i.Events.value
+		if i.User.emp_id in user_dict:
+			user_dict[i.User.emp_id].append(val)
+		else:
+			user_dict[i.User.emp_id] = [val]
+	print(user_dict)
+	return json.dumps(user_dict,indent=4, sort_keys=True)
 
 
 if __name__ == '__main__':
