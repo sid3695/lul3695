@@ -2,8 +2,10 @@ from flask import Flask, render_template, url_for, session, request, redirect
 
 from flask_sqlalchemy import SQLAlchemy
 import os
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_file = "sqlite:///{}".format(os.path.join(project_dir, "events.db"))
+
+
+#project_dir = os.path.dirname(os.path.abspath(__file__))
+#database_file = "sqlite:///{}".format(os.path.join(project_dir, "events.db"))
 
 
 
@@ -14,15 +16,19 @@ app = Flask(__name__)
 
 from datetime import datetime
 import time
-app.secret_key = "test"
-app.config["SQLALCHEMY_DATABASE_URI"] = database_file
+#app.secret_key = "test"
+#app.config["SQLALCHEMY_DATABASE_URI"] = database_file
+
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
 from models import *
 from utils import *
 
-db.drop_all()
-db.create_all()
+#db.drop_all()
+#db.create_all()
 
 #@app.route('/')
 #def hello_world():
@@ -236,3 +242,7 @@ def devicedetails():
 			return redirect(url_for("landing", empId = empId))
 	else:
 		return 'henlo'
+
+
+if __name__ == '__main__':
+    app.run()
