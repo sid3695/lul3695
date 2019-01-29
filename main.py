@@ -175,11 +175,24 @@ def addevent(dayId, year, month, date):
 			}'''
 			#check if daydata
 			#if yes then add event
+
+
+
+
 			if Date.query.filter_by(day_id = dayId).first():
 				print("YAHA")
-				newEvent = Events(day_id = dayId, action = request.form["action"], devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
-				db.session.add(newEvent)
-				db.session.commit()
+				if(request.form["action"] == "switch"):
+					#create on-off
+					newEvent = Events(day_id = dayId, action = "on", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
+					newEvent = Events(day_id = dayId, action = "off", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
+				else:
+					newEvent = Events(day_id = dayId, action = "color", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
 			else:
 				#-1 comes here
 				#create date
@@ -188,10 +201,19 @@ def addevent(dayId, year, month, date):
 				db.session.add(newDate)
 				db.session.commit()
 				print(newDate)
-				newEvent = Events(day_id = newDate.day_id, action = request.form["action"], devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
+				if request.form["action"] == "switch":
+					newEvent = Events(day_id = newDate.day_id, action = "on", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
+					newEvent = Events(day_id = newDate.day_id, action = "off", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
+				else:
+					newEvent = Events(day_id = newDate.day_id, action = "switch", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
+					db.session.add(newEvent)
+					db.session.commit()
+
 				
-				db.session.add(newEvent)
-				db.session.commit()
 
 			return redirect(url_for("landingdate",year = year, month = month, date= date))
 		else:
@@ -258,6 +280,12 @@ def userdump():
 	print(user_dict)
 	return json.dumps(user_dict,indent=4, sort_keys=True)
 
-
+@app.route('/dbreset')
+def dbreset():
+	db.drop_all()
+	db.create_all()
+	if is_logged_in():
+		del session['empId']
+	return 'db reset done'
 if __name__ == '__main__':
     app.run()
