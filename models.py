@@ -21,9 +21,10 @@ class Date(db.Model):
 
 class Events(db.Model):
 	event_id = db.Column(db.Integer, nullable = False, primary_key = True)
-	action = db.Column(db.String(10), nullable = False)
+	action = db.Column(db.String(100), nullable = False)
 	value = db.Column(db.String(10), nullable = False)
-	devicename = db.Column(db.String(20), nullable = False)
+	devicename_source = db.Column(db.String(20), nullable = False)
+	devicename_dest = db.Column(db.String(20), nullable = False)
 	timestamp = db.Column(db.Time, nullable=False)
 
 	day_id = db.Column(db.Integer, db.ForeignKey('date.day_id'),nullable=False)
