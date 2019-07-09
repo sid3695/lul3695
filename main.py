@@ -131,7 +131,7 @@ def landingdate(year, month, date):
 
 		#devices = (Devices.query.filter_by(emp_id = empId).all())
 		#fixed
-		devices = ["Living Room Speaker", "Bed Room Speaker", "Living Room TV", "Bed Room TV", "Family Hub", "AC", "Mobile"]
+		devices = ["Living Room Speaker", "Bed Room Speaker", "Living Room TV", "Bed Room TV", "Family Hub", "AC", "Mobile", "Living Room AC", "Bed Room AC"]
 
 
 		eventsfromDB = Events.query.filter_by(day_id  = dayIdfromDB)
@@ -194,9 +194,9 @@ def addevent(dayId, year, month, date):
 					newEvent = Events(day_id = dayId, action = request.form["action"] + "_on", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
 					db.session.add(newEvent)
 					db.session.commit()
-					newEvent = Events(day_id = dayId, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
-					db.session.add(newEvent)
-					db.session.commit()
+					# newEvent = Events(day_id = dayId, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
+					# db.session.add(newEvent)
+					# db.session.commit()
 				# else:
 				# 	newEvent = Events(day_id = dayId, action = "color", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
 				# 	db.session.add(newEvent)
@@ -213,9 +213,9 @@ def addevent(dayId, year, month, date):
 					newEvent = Events(day_id = newDate.day_id, action = request.form["action"] + "_on", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
 					db.session.add(newEvent)
 					db.session.commit()
-					newEvent = Events(day_id = newDate.day_id, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
-					db.session.add(newEvent)
-					db.session.commit()
+					# newEvent = Events(day_id = newDate.day_id, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
+					# db.session.add(newEvent)
+					# db.session.commit()
 				# else:
 				# 	newEvent = Events(day_id = newDate.day_id, action = "switch", devicename = request.form["devicename"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp'],'%H:%M').time())
 				# 	db.session.add(newEvent)
@@ -286,8 +286,7 @@ def userdump():
 		"timestamp" : str(i.Events.timestamp),
 		"scenario" : i.Events.action.split("_")[0],
 		"source device" : i.Events.devicename_source,
-		"dest device" : i.Events.devicename_dest,
-		"scenario action" : i.Events.action.split("_")[1]
+		"dest device" : i.Events.devicename_dest
 		}
 		if i.User.emp_id in user_dict:
 			user_dict[i.User.emp_id].append(val1)
