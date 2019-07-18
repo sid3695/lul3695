@@ -131,7 +131,7 @@ def landingdate(year, month, date):
 
 		#devices = (Devices.query.filter_by(emp_id = empId).all())
 		#fixed
-		devices = ["Living Room Speaker", "Bed Room Speaker", "Living Room TV", "Bed Room TV", "Family Hub", "AC", "Mobile", "Living Room AC", "Bed Room AC"]
+		devices = ["Living Room Speaker", "Bed Room Speaker", "Living Room TV", "Bed Room TV", "Family Hub", "Mobile", "Living Room AC", "Bed Room AC"]
 
 
 		eventsfromDB = Events.query.filter_by(day_id  = dayIdfromDB)
@@ -159,7 +159,7 @@ def landingdate(year, month, date):
 			templist = sorted(timetable[i], key=lambda k: k['timestamp'])
 			timetable[i] = templist
 		print(timetable)
-		return render_template("date.html", year = year, month= month, date = date, timetable = timetable, dayId = dayIdfromDB, devices = devices)
+		return render_template("date2.html", year = year, month= month, date = date, timetable = timetable, dayId = dayIdfromDB, devices = devices)
 	else:
 		return redirect(url_for("signup"))
 
@@ -294,6 +294,11 @@ def userdump():
 			user_dict[i.User.emp_id] = [val1]
 	print(user_dict)
 	return json.dumps(user_dict,indent=4, sort_keys=True)
+
+@app.route('/drag')
+def drag():
+	return render_template("drag.html")
+
 
 @app.route('/dbreset')
 def dbreset():

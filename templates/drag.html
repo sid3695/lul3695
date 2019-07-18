@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>login</title>
+{% endblock head %}
+
+{% block css %}
+<style>
+    .scenario-elip{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">SmartHome Survey</a>
+            </div>
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    
+    <!-- Page Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class = "col-md-9 col-md-offset-3">
+            <div class="panel panel-default">
+                 <div class="panel-heading">Devices</div>
+                <div class="panel-body">
+                 
+                        <ul class="list-inline">
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-tv" aria-hidden="true"></span> Living Room TV</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-tv" aria-hidden="true"></span> Bedroom TV</li>
+
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-volume-up" aria-hidden="true"></span> Bedroom Speaker</li>
+                            <li class="list-group-item" style = "margin-right:5px;"><span class="fa fa-volume-up" aria-hidden="true"></span> Living Room Speaker</li>
+                            
+
+                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Bedroom AC</li>
+                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Living Room AC</li>
+                            
+
+                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-snowflake" aria-hidden="true"></span> Family Hub</li>
+                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-mobile" aria-hidden="true"></span> Mobile</li>
+                        </ul>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="panel panel-default">
+                 <div class="panel-heading">Scenarios</div>
+                <div class="panel-body">
+                    <ul class="list-group" style = "overflow:scroll;max-height: 450px;">
+                      <li class="list-group-item scenario-elip">1 First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 2 First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">3 First item sdada sd  asd sa a das da asd sa das ad aad</li>
+
+                      <li class="list-group-item scenario-elip">4 First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 5First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 6First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 7First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 8First item sdada sd  asd sa a das da asd sa das ad aad</li>
+
+                      <li class="list-group-item scenario-elip"> 9First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip"> 10 First item sdada sd  asd sa a das da asd sa das ad aad</li>
+
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <div class = "col-md-9">
+                <ul class = "list-group" style="list-style-type:none;overflow:scroll;max-height: 550px;">
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 9- 10AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "9">
+                            <div class = "row">
+                                <div class = "col-md-2" ></div>
+                                <div class = "col-md-10 toIns" ><br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+                </li>
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 9- 10AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "9">
+                            <div class = "row">
+                                <div class = "col-md-2" ></div>
+                                <div class = "col-md-10 toIns" >2 <br><br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+                </li>
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 9- 10AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "9">
+                            <div class = "row">
+                                <div class = "col-md-2" ></div>
+                                <div class = "col-md-10 toIns" >3 <br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+                </li>
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 9- 10AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "9">
+                            <div class = "row">
+                                <div class = "col-md-2" ></div>
+                                <div class = "col-md-10 toIns" >1 <br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+                </li>
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 9- 10AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "9">
+                            <div class = "row">
+                                <div class = "col-md-2" ></div>
+                                <div class = "col-md-10 toIns" >1<br> </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+                </li>
+                <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 10- 11AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "10">
+                            <div class = "row">
+                                <div class = "col-md-2"></div>
+                                <div class = "col-md-10 toIns" >2<br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+            </li>
+                </ul>
+            </div>
+        </div>
+
+        
+
+    </div>
+    <!-- /.container -->
+
+{% endblock content %}
+
+
+{% block js %}
+<script>
+var content;
+var legacy;
+$( function() {
+    $( ".scenario-elip" ).draggable({
+    appendTo: "body",
+    cursor: "move",
+    helper: 'clone',
+    
+    });
+  } );
+
+$( function() {
+    $( ".device" ).draggable({
+    appendTo: "body",
+    cursor: "move",
+    helper: 'clone',
+    
+    });
+  } );
+
+
+$(document).on('click', '.cancelb', function () {
+    console.log(legacy.html())
+    //console.log($(this).parent().parent().parent().parent().parent().find(".toIns").html());
+    $(this).parent().parent().parent().parent().find("#addevent-form1").html(legacy.find(".toIns").html());
+
+});
+
+
+// $(".cancelb").click(function() {
+//     console.log('here')
+//  $(this).parent().parent().html(content);
+// });
+
+$(".dropzone-time").droppable({
+    tolerance: "pointer",
+    activeClass: "ui-state-default",
+    hoverClass: "ui-state-hover",
+    drop: function(event, ui) { 
+        //console.log(ui.draggable.hasClass("scenario-elip"))
+    if(ui.draggable.hasClass("scenario-elip"))       
+        {
+            //show form with scenario filled
+            
+            content = $(this).clone()
+            console.log(content.html())
+            if(!$(this).find("form").val()){
+                console.log("g")
+                legacy = content;
+                console.log(legacy);
+            }
+            form = $('<form method="post" action="#" id="addevent-form1" class="form-horizontal col-md-6"> \
+                <div class="row form-group"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
+                <input type="text" name="name" class="form-control" required= "required"/></div> \
+                <div class=" row form-group"><label class="control-label" for="action"> Scenario:</label><input type="text" name="action" class="form-control" required= "required"/></div> \
+                <div class=" row form-group">\
+                <div class = "col-md-6">\
+                <label class="control-label" for="hrs"> Hrs:</label><input type="number" name="hrs" class="form-control" required= "required" disabled/>\
+                </div> \
+                <div class = "col-md-6">\
+                <label class="control-label" for="mins"> Mins:</label><input type="number" name="mins" class="form-control" required= "required"/>\
+                </div> \
+                </div> \
+                <div class="row form-group"><div class="col-md-4"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" /></div><div class = "col-md-4"><button type="button" class="btn cancelb">Cancel</button></div></div>\
+                </div></form>');
+            
+            form.find('input[name = "hrs"]').val(content.attr('id'));
+            $(this).find(".toIns").html(form);
+            $(this).find('input[name = "action"]').val(ui.draggable.text())
+            //console.log(content.find('input[name = "name"]').val().length!=0)
+            if(content.find('input[name = "name"]').val()!=undefined && content.find('input[name = "name"]').val().length!=0)
+            {
+                console.log("here")
+                $(this).find('input[name = "name"]').val($(content).find('input[name = "name"]').val())
+            }
+            //$(this).html(form);
+            
+        }
+    if(ui.draggable.hasClass("device"))       
+        {
+            //show form with scenario filled
+            content = $(this).clone()
+            if(!$(this).find("form").val()){
+                console.log("g")
+                legacy = content;
+                console.log(legacy);
+            }
+
+            form = $('<form method="post" action="#" id="addevent-form1" class="form-horizontal col-md-6"> \
+                <div class="row form-group"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
+                <input type="text" name="name" class="form-control" required= "required"/></div> \
+                <div class=" row form-group"><label class="control-label" for="action"> Scenario:</label><input type="text" name="action" class="form-control" required= "required"/></div> \
+                <div class=" row form-group">\
+                <div class = "col-md-6">\
+                <label class="control-label" for="hrs"> Hrs:</label><input type="number" name="hrs" class="form-control" required= "required" disabled/>\
+                </div> \
+                <div class = "col-md-6">\
+                <label class="control-label" for="mins"> Mins:</label><input type="number" name="mins" class="form-control" required= "required"/>\
+                </div> \
+                </div> \
+                <div class="row form-group"><div class="col-md-4"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" /></div><div class = "col-md-4"><button type="button" class="btn cancelb">Cancel</button></div></div>\
+                </div></form>');
+            
+            form.find('input[name = "hrs"]').val(content.attr('id'));
+            $(this).find(".toIns").html(form);
+            $(this).find('input[name = "name"]').val(ui.draggable.text())
+            
+            //console.log(content.find('input[name = "name"]').val().length!=0)
+            if(content.find('input[name = "action"]').val()!=undefined && content.find('input[name = "action"]').val().length!=0)
+            {
+                console.log("here")
+                $(this).find('input[name = "action"]').val($(content).find('input[name = "action"]').val())
+            }
+            //$(this).html(form);
+        }
+    }
+});
+
+</script>
+{% endblock js %}
