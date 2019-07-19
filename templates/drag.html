@@ -11,6 +11,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    #nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
     </style>
 {% endblock css %}
 
@@ -31,7 +38,7 @@
     
     <!-- Page Content -->
     <div class="container-fluid">
-        <div class="row">
+        <div class="row ds">
             <div class = "col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                  <div class="panel-heading">Devices</div>
@@ -92,7 +99,7 @@
             </div>
             </div>
             <div class = "col-md-9">
-                <ul class = "list-group" style="list-style-type:none;overflow:scroll;max-height: 550px;">
+                <ul class = "list-group" style="list-style-type:none;overflow:scroll">
                 <li>
                 <div class="panel panel-default" >
                     <div class="panel-heading">Time Slot : 9- 10AM</div>
@@ -195,6 +202,40 @@
                 
                 </div>
             </li>
+            <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 10- 11AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "10">
+                            <div class = "row">
+                                <div class = "col-md-2"></div>
+                                <div class = "col-md-10 toIns" >2<br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-default" >
+                    <div class="panel-heading">Time Slot : 10- 11AM</div>
+                    <div class="panel-body">
+
+                        <div class = "dropzone-time" id = "10">
+                            <div class = "row">
+                                <div class = "col-md-2"></div>
+                                <div class = "col-md-10 toIns" >2<br></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                      
+                
+                </div>
+            </li>
                 </ul>
             </div>
         </div>
@@ -230,6 +271,24 @@ $( function() {
   } );
 
 
+
+$('#ds').affix({
+       offset: {
+        top: 0
+      }
+}); 
+
+// $('#sidebar').affix({
+//       offset: {
+//         top: 200
+//       }
+// }); 
+
+
+
+
+
+
 $(document).on('click', '.cancelb', function () {
     console.log(legacy.html())
     //console.log($(this).parent().parent().parent().parent().parent().find(".toIns").html());
@@ -247,6 +306,7 @@ $(".dropzone-time").droppable({
     tolerance: "pointer",
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
+    accept: ".scenario-elip",
     drop: function(event, ui) { 
         //console.log(ui.draggable.hasClass("scenario-elip"))
     if(ui.draggable.hasClass("scenario-elip"))       
@@ -261,7 +321,7 @@ $(".dropzone-time").droppable({
                 console.log(legacy);
             }
             form = $('<form method="post" action="#" id="addevent-form1" class="form-horizontal col-md-6"> \
-                <div class="row form-group"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
+                <div class="row form-group inp1"><label class="control-label" for="devicename_source"> Source Device Name:</label> \
                 <input type="text" name="name" class="form-control" required= "required"/></div> \
                 <div class=" row form-group"><label class="control-label" for="action"> Scenario:</label><input type="text" name="action" class="form-control" required= "required"/></div> \
                 <div class=" row form-group">\
@@ -277,6 +337,15 @@ $(".dropzone-time").droppable({
             
             form.find('input[name = "hrs"]').val(content.attr('id'));
             $(this).find(".toIns").html(form);
+            $(this).find(".inp1").droppable({
+                tolerance: "pointer",
+                accept: '.device',
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover",
+                drop: function(event, ui) { 
+                    console.log("akamamak");
+                }
+            });
             $(this).find('input[name = "action"]').val(ui.draggable.text())
             //console.log(content.find('input[name = "name"]').val().length!=0)
             if(content.find('input[name = "name"]').val()!=undefined && content.find('input[name = "name"]').val().length!=0)

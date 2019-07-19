@@ -150,16 +150,66 @@ def landingdate(year, month, date):
 			}
 			timetable[convTime.hour].append(tempStr)
 		
+		scenarios = [
+                         "Change AC Temperature to 26",
+                         "Play Jurassic Park in my room",
+                         "Set temperature to 25 in my office",
+                         "Search Horror Movies",
+                         "Turn on air purifying mode",
+                         "Tell me next week's weather",
+                         "Play youtube video", 
+                         "Play avengers 3 movie", 
+                         "Please turn up temperature of the AC",
+                         "Set sleep timer of the TV for 30 minutes", 
+                         "Show what's inside the Refrigerator", 
+                         "Show inside of refrigerator on TV", 
+                         "Notify about the indoor air purity of the Air purifier",
+                         "Search Jisung Park in youtube on TV",
+                         "Show me the game of thrones episode", 
+                         "Video call to Mom", 
+                         "Take a call", 
+                         "Play Music", 
+                         "On TV, Show ESPN Channel", 
+                         "On TV, Volume level 2", 
+                         "Search Popular Tv programs", 
+                         "Set air purifying mode", 
+                         "What is current temperature", 
+                         "Play bollywood party songs", 
+                         "Play bollywood romantic songs", 
+                         "Play game of thrones on youtube", 
+                         "Tell me about today's news",
+                         "Turn on ac sleeping mode",
+                         "Show me my recent messages", 
+                         "Play prison break on tv", 
+                         "In the kitchen, play music", 
+                         "Save mountain scenery as my wallpaper", 
+                         "Search dinosaur on youtube", 
+                         "Show me next week's weather on TV", 
+                         "Show me Netflix", 
+                         "Play latest watched movie on TV", 
+                         "Show me something great to watch", 
+                         "Play house of cards on Amazon", 
+                         "Show me expiring items on Amazon", 
+                         "Play morning's brief", 
+                         "Whats the weather this week", 
+		]
 
+		literal_times = ["12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 AM"]
 		print(timetable)
+		print('ssdsd ' + literal_times[5])
+		literal_times_pass = {}
 		#sort all arrays
 		for i in range(0,25):
 			#sort each
 			templist = []
+			if(i<24):
+				slot_string = literal_times[i]+"- "+literal_times[i+1]
+				literal_times_pass[i] = slot_string
 			templist = sorted(timetable[i], key=lambda k: k['timestamp'])
 			timetable[i] = templist
 		print(timetable)
-		return render_template("date2.html", year = year, month= month, date = date, timetable = timetable, dayId = dayIdfromDB, devices = devices)
+		print(literal_times_pass)
+		return render_template("date2.html", year = year, month= month, date = date, scenarios = scenarios, literal = literal_times_pass , timetable = timetable, dayId = dayIdfromDB, devices = devices)
 	else:
 		return redirect(url_for("signup"))
 
@@ -191,7 +241,8 @@ def addevent(dayId, year, month, date):
 				print("YAHA")
 				if(request.form["action"]):
 					#create on-off
-					newEvent = Events(day_id = dayId, action = request.form["action"] + "_on", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
+					timestr = request.form["hrs"]+":"+request.form["mins"]
+					newEvent = Events(day_id = dayId, action = request.form["action"], devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"],value = "on",timestamp =  datetime.strptime(timestr,'%H:%M').time())
 					db.session.add(newEvent)
 					db.session.commit()
 					# newEvent = Events(day_id = dayId, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
@@ -210,7 +261,8 @@ def addevent(dayId, year, month, date):
 				db.session.commit()
 				print(newDate)
 				if request.form["action"]:
-					newEvent = Events(day_id = newDate.day_id, action = request.form["action"] + "_on", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp1'],'%H:%M').time())
+					timestr = request.form["hrs"]+":"+request.form["mins"]
+					newEvent = Events(day_id = newDate.day_id, action = request.form["action"], devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= "on",timestamp =  datetime.strptime(timestr,'%H:%M').time())
 					db.session.add(newEvent)
 					db.session.commit()
 					# newEvent = Events(day_id = newDate.day_id, action = request.form["action"] + "_off", devicename_source = request.form["devicename_source"], devicename_dest = request.form["devicename_dest"], value= request.form['value'],timestamp =  datetime.strptime(request.form['timestamp2'],'%H:%M').time())
@@ -280,11 +332,11 @@ def userdump():
 	#print (qq.all())
 	user_dict = {}
 	for i in q:
-		val = str(i.Date.date) + "," + str(i.Events.timestamp) + "," + i.Events.action.split("_")[0] + "," + i.Events.devicename_source + "," + i.Events.devicename_dest + ","
+		val = str(i.Date.date) + "," + str(i.Events.timestamp) + "," + i.Events.action + "," + i.Events.devicename_source + "," + i.Events.devicename_dest + ","
 		val1 = {
 		"date" : str(i.Date.date),
 		"timestamp" : str(i.Events.timestamp),
-		"scenario" : i.Events.action.split("_")[0],
+		"scenario" : i.Events.action,
 		"source device" : i.Events.devicename_source,
 		"dest device" : i.Events.devicename_dest
 		}

@@ -11,6 +11,23 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .fixed {
+  position: fixed;
+  
+  z-index: 10;
+  width: 100%;
+}
+.sce{
+
+}
+
+@media screen and (min-width: 800px) {
+  .sce {
+
+    max-height: 450px;
+  }
+}
+
     </style>
 {% endblock css %}
 
@@ -34,8 +51,8 @@
     <!-- Page Content -->
     <div class="container-fluid">
 
-        <div class="row">
-            <div class = "col-md-9 col-md-offset-3">
+        <div class="row fixed text-center">
+            <div class = "col-md-12">
             <div class="panel panel-default">
                  <div class="panel-heading">Devices</div>
                 <div class="panel-body">
@@ -45,15 +62,15 @@
                             <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-tv" aria-hidden="true"></span> Bedroom TV</li>
 
                             <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-volume-up" aria-hidden="true"></span> Bedroom Speaker</li>
-                            <li class="list-group-item" style = "margin-right:5px;"><span class="fa fa-volume-up" aria-hidden="true"></span> Living Room Speaker</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fa fa-volume-up" aria-hidden="true"></span> Living Room Speaker</li>
                             
 
-                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Bedroom AC</li>
-                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Living Room AC</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Bedroom AC</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fas fa-wind" aria-hidden="true"></span> Living Room AC</li>
                             
 
-                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-snowflake" aria-hidden="true"></span> Family Hub</li>
-                            <li class="list-group-item" style = "margin-right:5px;"><span class="fas fa-mobile" aria-hidden="true"></span> Mobile</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fas fa-snowflake" aria-hidden="true"></span> Family Hub</li>
+                            <li class="list-group-item device" style = "margin-right:5px;"><span class="fas fa-mobile" aria-hidden="true"></span> Mobile</li>
                         </ul>
                     
                 </div>
@@ -62,57 +79,36 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-md-3 text-center">
+        <div class="row" style = "padding-top:10%;">
+            <div class="col-md-3 text-center"  style = "position:fixed;z-index:9">
                 <div class="panel panel-default">
                  <div class="panel-heading">Scenarios</div>
                 <div class="panel-body">
-                    <ul class="list-group" style = "overflow:scroll;max-height: 450px;">
-                      <li class="list-group-item scenario-elip">1 First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 2 First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">3 First item sdada sd  asd sa a das da asd sa das ad aad</li>
-
-                      <li class="list-group-item scenario-elip">4 First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 5First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 6First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 7First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 8First item sdada sd  asd sa a das da asd sa das ad aad</li>
-
-                      <li class="list-group-item scenario-elip"> 9First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip"> 10 First item sdada sd  asd sa a das da asd sa das ad aad</li>
-
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
-                      <li class="list-group-item scenario-elip">First item sdada sd  asd sa a das da asd sa das ad aad</li>
+                    <ul class="list-group sce" style = "overflow:scroll;">
+                      {% for i in scenarios %}
+                      <li class="list-group-item scenario-elip">{{i}}</li>
+                      {% endfor %}
                     </ul>
                 </div>
             </div>
             </div>
-            <div class = "col-md-9">
-            <ul class = "list-group" style="list-style-type:none;overflow:scroll;max-height: 550px;">
+            <div class = "col-md-offset-3 col-md-9">
+            <ul class = "list-group" style="list-style-type:none;">
 
-
+                {% for j in range(24) %}
                 <li>
                 <div class="panel panel-default" >
-                    <div class="panel-heading">Time Slot : 12AM - 1AM</div>
+                    <div class="panel-heading">Time Slot : {{literal[j]}}</div>
                     <div class="panel-body">
 
-                        <div class = "dropzone-time" id = "0">
+                        <div class = "dropzone-time" id = "{{j}}">
                             <div class = "row">
                                 <div class = "col-md-2" ></div>
                                 <div class = "col-md-10 toIns" >
-                                    {% for i in timetable[0] %}
-                                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
+                                    {% for i in timetable[j] %}
+                                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#m{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
                                     {% endfor %}
-                                    {% if not(timetable[0]) %}
+                                    {% if not(timetable[j]) %}
                                     <br>
                                     {% endif %}
                                 </div>
@@ -124,711 +120,14 @@
                 
                 </div>
                 </li>
-
+                {% endfor %}
 
             </ul>
             </div>
             </div>
         
 
-<div class="row">
-    <div class="col-lg-12 ">
-    	<div class="panel panel-default">
-    		<div class="panel-heading text-center">
-                <div class = "row"><div class = "col-lg-4">
-                
-                </div>
-                <div class = "col-lg-4">
-                <h4> All events on {{date}}/{{month}}/{{year}}</h4>
-                </div>
-                <div class = "col-lg-2">
-                
-                </div>
-                <div class = "col-lg-2">
-                <button type = "button" class = "btn btn-info" data-toggle="modal" data-target="#addEvent"> Add an Event</button>
-                </div>
-                    </div>
-            </div>
-			<div class="panel-body">
 
-                <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                12 AM - 1 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[0] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                1 AM - 2 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[1] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                2 AM - 3 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[2] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                3 AM - 4 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[3] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                4 AM - 5 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[4] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                5 AM - 6 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[5] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                6 AM - 7 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[6] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                7 AM - 8 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[7] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                8 AM - 9 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[8] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                9 AM - 10 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[9] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                10 AM - 11 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[10] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                11 AM - 12 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[11] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                12 PM - 1 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[12] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                1 PM - 2 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[13] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                2 PM - 3 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[14] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                3 PM - 4 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[15] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                4 PM - 5 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[16] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                5 PM - 6 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[17] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                6 PM - 7 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[18] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                7 PM - 8 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[19] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                8 PM - 9 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[20] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                9 PM - 10 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[21] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-             <div class = "row">
-
-                    <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                22 PM - 23 PM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[22] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-                    
-                   <div class = "col-lg-6">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class = "col-lg-4">
-                                11 PM - 12 AM
-                            </div>
-
-                            <div class = "col-lg-8">
-                                
-                                {% for i in timetable[23] %}
-                                
-                                {% if i.action.split("_")[1] == "off" %}
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% elif i.action.split("_")[1] == "on" %}
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% else %}
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{i.eventId}}">{{i.devicename_source}} at {{i.timestamp}}</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-
-                          </div>
-                        </div>                      
-                    </div>
-
-
-
-            </div>
-
-
-
-
-		</div>
-    </div>
 </div>
 	  
 
@@ -838,7 +137,7 @@
 {% for i in timetable %}
 {% for j in timetable[i] %}
 
-<div id="{{j.eventId}}" class="modal fade" role="dialog">
+<div id="m{{j.eventId}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -855,7 +154,7 @@
       <div class="modal-body">
         <p>Source Device Name : {{j.devicename_source}}</p>
         <p>Destination Device Name : {{j.devicename_dest}}</p>
-        <p>Action Performed : {{j.action.split("_")[0]}}</p>
+        <p>Action Performed : {{j.action}}</p>
         <p>Time : {{j.timestamp}}</p>
         {% if j.action == "color" %}
         <p>Color : {{j.value}}</p>
@@ -872,190 +171,8 @@
 {% endfor %}
 
 
-<div id="addEvent" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add a new event</h4>
-      </div>
-      <div class="modal-body">
-        
-
-        
-        <div class="tab-content">
-          <div id="switch" class="tab-pane fade in active">
-            
-
-            <form method="post" action="{{url_for('addevent', dayId = dayId, year = year, month = month, date = date)}}" id="addevent-form1" class="form-horizontal">
-            
-            <!--<div class="row">
-            <div class = "col-sm-5 col-sm-offset-1"> 
-            <label for="action" >Select the action you performed:</label>
-            </div>
-              <div class="col-sm-4">
-                        <div class="form-group">
-                
-
-                
-                  <select class="form-control" name = "action" id="action" onchange="yesnoCheck(this);">
-                    <option value = "on">Power On</option>
-                    <option value = "off">Switch Off</option>
-                    <option value = "color">Change Color</option>
-                  </select>
-
-                    </div></div>
-                        </div>-->
-            <br>
-            
-            <input type = "hidden" name = "value" id = "value" value = "none">
-           <div class="form-group">
-                <label class="control-label col-sm-3 col-sm-offset-1" for="action">Scenario:</label>
-                <div class="col-sm-6">
-                    <select class="form-control" name = "action" id="action">
-                        
-                        
-                        <option value = "Change AC Temperature to 26">Change AC Temperature to 26</option>
-                        <option value = "Play Jurassic Park in my room">Play Jurassic Park in my room</option>
-                        <option value = "Set temperature to 25 in my office">Set temperature to 25 in my office</option>
-                        <option value = "Search Horror Movies">Search Horror Movies</option>
-                        
-                        <option value = "Turn on air purifying mode">Turn on air purifying mode</option>
-                        <option value = "Tell me next week's weather">Tell me next week's weather</option>
-                        <option value = "Play youtube video">Play youtube video</option>
 
 
-                        <option value = "Play avengers 3 movie">Play avengers 3 movie</option>
-                        
-                        <option value = "Please turn up temperature of the AC">Please turn up temperature of the AC</option>
-                        <option value = "Set sleep timer of the TV for 30 minutes">Set sleep timer of the TV for 30 minutes</option>
-                        <option value = "Show what's inside the Refrigerator">Show what's inside the Refrigerator</option>
-                        <option value = "Show inside of refrigerator on TV">Show inside of refrigerator on TV</option>
-                       
-                        <option value = "Notify about the indoor air purity of the Air purifier">Notify about the indoor air purity of the Air purifier</option>
-
-                        
-                        <option value = "Search Jisung Park in youtube on TV">Search Jisung Park in youtube on TV</option>
-                        <option value = "Show me the game of thrones episode">Show me the game of thrones episode</option>
-                        <option value = "Video call to Mom">Video call to Mom</option>
-                        <option value = "Take a call">Take a call</option>
-                        <option value = "Play Music">Play Music</option>
-                        <option value = "On TV, Show ESPN Channel">On TV, Show ESPN Channel</option>
-                        <option value = "On TV, Volume level 2">On TV, Volume level 2</option>
-                        <option value = "Search Popular Tv programs">Search Popular Tv programs</option>
-                        <option value = "Set air purifying mode">Set air purifying mode</option>
-                        <option value = "What is current temperature">What is current temperature</option>
-                        <option value = "Play bollywood party songs">Play bollywood party songs</option>
-                        <option value = "Play bollywood romantic songs">Play bollywood romantic songs</option>
-                        <option value = "Play game of thrones on youtube">Play game of thrones on youtube</option>
-                        <option value = "Tell me about today's news">Tell me about today's news</option>
-                        <option value = "Turn on ac sleeping mode">Turn on ac sleeping mode</option>
-                        <option value = "Show me my recent messages">Show me my recent messages</option>
-                        <option value = "Play prison break on tv">Play prison break on tv</option>
-                        <option value ="In the kitchen, play music">In the kitchen, play music</option>
-                        <option value ="Save mountain scenery as my wallpaper">Save mountain scenery as my wallpaper</option>
-                        <option value ="Search dinosaur on youtube">Search dinosaur on youtube</option>
-                        <option value ="Show me next week's weather on TV">Show me next week's weather on TV</option>
-                        <option value ="Show me Netflix">Show me Netflix</option>
-                        <option value ="Play latest watched movie on TV">Play latest watched movie on TV</option>
-                        <option value ="Show me something great to watch">Show me something great to watch</option>
-                        <option value ="Play house of cards on Amazon">Play house of cards on Amazon</option>
-                        <option value ="Show me expiring items on Amazon">Show me expiring items on Amazon</option>
-                        <option value ="Play morning's brief">Play morning's brief</option>
-                        <option value ="Whats the weather this week">Whats the weather this week</option>
-
-                      </select>
-                </div>
-            </div>
-                   
-
-            <div class="form-group">
-                <label class="control-label col-sm-3 col-sm-offset-1" for="devicename_source"> Source Device Name:</label>
-                <div class="col-sm-6">
-                    <select class="form-control" name = "devicename_source" id="devicename_source">
-                        
-                        {% for i in devices %}
-                        <option value = "{{i}}">{{i}}</option>
-                        {% endfor %}
-                      </select>
-                </div>
-            </div>
-
-              <div class="form-group">
-                <label class="control-label col-sm-3 col-sm-offset-1" for="devicename_dest">Destination Device Name:</label>
-                <div class="col-sm-6">
-                    <select class="form-control" name = "devicename_dest" id="devicename_dest">
-                        
-                        {% for i in devices %}
-                        <option value = "{{i}}">{{i}}</option>
-                        {% endfor %}
-                      </select>
-                </div>
-            </div>
-
-
-          
-
-
-                <div class="row">
-                <div class = "col-sm-3 col-sm-offset-2"> 
-                <label for="action" >Time:</label>
-                </div>
-                <div class = "col-sm-4">
-                <div class="form-group">
-                            <div class="input-group clockpicker">
-                    <input type="text" class="form-control" value="09:30" name ="timestamp1" id = "timestamp1">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                </div>
-
-                </div>
-
-                </div>
-
-                
-
-
-
-            </div>
-            <div class="form-group"> 
-              <div class="col-sm-offset-5">
-                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" />
-            </div>
-            </div>
-        
-        </form>
-
-
-
-
-
-          </div>
-          
-          
-        </div>
-
-
-
-
-
-
-        
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-    <!-- /.container -->
-</div>
 {% endblock content %}
 
 
@@ -1080,6 +197,13 @@ $( function() {
     });
   } );
 
+$('#sidebar').affix({
+      offset: {
+        top: 100
+      }
+}); 
+
+
 
 $(document).on('click', '.cancelb', function () {
     //console.log($(this).parent().parent().parent().parent().parent().find(".toIns").html());
@@ -1094,6 +218,7 @@ $(document).on('click', '.cancelb', function () {
 
 $(".dropzone-time").droppable({
     tolerance: "pointer",
+    accept: ".scenario-elip",
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: function(event, ui) { 
@@ -1103,12 +228,14 @@ $(".dropzone-time").droppable({
             //show form with scenario filled
             content = $(this).clone()
             form = $('<form method="post" action="{{url_for('addevent', dayId = dayId, year = year, month = month, date = date)}}" id="addevent-form1" class="form-horizontal col-md-6"> \
-                <div class="row form-group"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
-                <input type="text" name="name" class="form-control" required= "required"/></div> \
                 <div class=" row form-group"><label class="control-label" for="action"> Scenario:</label><input type="text" name="action" class="form-control" required= "required"/></div> \
+                <div class="row form-group inp1"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
+                <input type="text" name="devicename_source" class="form-control" required= "required"/></div> \
+                <div class="row form-group inp2"><label class="control-label " for="devicename_dest"> Dest Device Name:</label> \
+                <input type="text" name="devicename_dest" class="form-control" required= "required"/></div> \
                 <div class=" row form-group">\
                 <div class = "col-md-6">\
-                <label class="control-label" for="hrs"> Hrs:</label><input type="number" name="hrs" class="form-control" required= "required" disabled/>\
+                <label class="control-label" for="hrs"> Hrs:</label><input type="number" name="hrs" class="form-control" required= "required" readonly="readonly"/>\
                 </div> \
                 <div class = "col-md-6">\
                 <label class="control-label" for="mins"> Mins:</label><input type="number" name="mins" class="form-control" required= "required"/>\
@@ -1119,7 +246,16 @@ $(".dropzone-time").droppable({
             
             form.find('input[name = "hrs"]').val(content.attr('id'));
             $(this).find(".toIns").html(form);
-            $(this).find('input[name = "action"]').val(ui.draggable.text())
+            $(this).find('input[name = "action"]').val(ui.draggable.text());
+            $(this).find(".inp1, .inp2").droppable({
+                tolerance: "pointer",
+                accept: '.device',
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover",
+                drop: function(event, ui) { 
+                    $(this).find('input').val(ui.draggable.text());
+                }
+            });
             //console.log(content.find('input[name = "name"]').val().length!=0)
             if(content.find('input[name = "name"]').val()!=undefined && content.find('input[name = "name"]').val().length!=0)
             {
@@ -1128,37 +264,6 @@ $(".dropzone-time").droppable({
             }
             //$(this).html(form);
             
-        }
-    if(ui.draggable.hasClass("device"))       
-        {
-            //show form with scenario filled
-            content = $(this).clone()
-            form = $('<form method="post" action="{{url_for('addevent', dayId = dayId, year = year, month = month, date = date)}}" id="addevent-form1" class="form-horizontal col-md-6"> \
-                <div class="row form-group"><label class="control-label " for="devicename_source"> Source Device Name:</label> \
-                <input type="text" name="name" class="form-control" required= "required"/></div> \
-                <div class=" row form-group"><label class="control-label" for="action"> Scenario:</label><input type="text" name="action" class="form-control" required= "required"/></div> \
-                <div class=" row form-group">\
-                <div class = "col-md-6">\
-                <label class="control-label" for="hrs"> Hrs:</label><input type="number" name="hrs" class="form-control" required= "required" disabled/>\
-                </div> \
-                <div class = "col-md-6">\
-                <label class="control-label" for="mins"> Mins:</label><input type="number" name="mins" class="form-control" required= "required"/>\
-                </div> \
-                </div> \
-                <div class="row form-group"><div class="col-md-4"><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-default" /></div><div class = "col-md-4"><button type="button" class="btn cancelb">Cancel</button></div></div>\
-                </div></form>');
-            
-            form.find('input[name = "hrs"]').val(content.attr('id'));
-            $(this).find(".toIns").html(form);
-            $(this).find('input[name = "name"]').val(ui.draggable.text())
-            
-            //console.log(content.find('input[name = "name"]').val().length!=0)
-            if(content.find('input[name = "action"]').val()!=undefined && content.find('input[name = "action"]').val().length!=0)
-            {
-                console.log("here")
-                $(this).find('input[name = "action"]').val($(content).find('input[name = "action"]').val())
-            }
-            //$(this).html(form);
         }
     }
 });
